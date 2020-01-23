@@ -1,0 +1,24 @@
+{
+  "name": "laCocina",
+  "version": "1.0.0",
+  "description": "The backend for my family recipe website.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/clondono/laCocina.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/clondono/laCocina/issues"
+  },
+  "homepage": "https://github.com/clondono/laCocina#readme",
+  "dependencies": {
+    "flow": "^0.2.3",
+    "flow-typed": "^2.6.2"
+  }
+}
