@@ -6,15 +6,15 @@ if [ $1 == 'localhost' ]; then
   POSTGRES_PORT="5432"
   POSTGRES_USER='postgres'
   POSTGRES_PASSWORD=''
-  POSTGRES_DATABASE='sample_db'
+  POSTGRES_DATABASE='honeypot_db'
 
 elif [ $1 == 'production' ]; then
 
   POSTGRES_HOST=""
   POSTGRES_PORT=""
-  POSTGRES_USER='sample_db'
+  POSTGRES_USER='honeypot_db'
   POSTGRES_PASSWORD='password'
-  POSTGRES_DATABASE='sample_db'
+  POSTGRES_DATABASE='honeypot_db'
 else
 
   echo "$1 is not an allowed config -- please use localhost or staging or testing"

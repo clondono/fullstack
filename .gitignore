@@ -7,4 +7,5 @@
 server/*
 cache_dir/*
 node_modules
+node_modules/*
 .tmp/

@@ -1,2 +1,2 @@
-DROP DATABASE sample_db  ;
-DROP ROLE     sample_user  ;
+DROP DATABASE honeypot_db  ;
+DROP ROLE     hitsquad  ;
