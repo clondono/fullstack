@@ -7,6 +7,7 @@ const config = { } ;
 
 config.PORT = Argv.port || 9085;
 config.CLIENT_HOST ='localhost:3000',
+config.LOG_LEVEL = Argv.log_level || 1;
 
 //Postgres params
 config.POSTGRES = {};

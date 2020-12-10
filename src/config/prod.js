@@ -6,6 +6,9 @@ const BaseConfig = require('./base.js');
 const config = { } ;
 
 
+/* General HTTP */
+config.PORT = Argv.port || 8080;
+config.LOG_LEVEL = Argv.log_level || 1;
 config.CLIENT_HOST ='',
 //Postgres params
 config.POSTGRES = {};

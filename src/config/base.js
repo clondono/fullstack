@@ -4,8 +4,6 @@ const Path  = require("path");
 
 const config = {};
 
-/* General HTTP */
-config.PORT = Argv.port || 8080;
 
 config.SESSION_COOKIE='nomnom';
 
