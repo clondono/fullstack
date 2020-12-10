@@ -10,10 +10,10 @@ if [ $1 == 'localhost' ]; then
 
 elif [ $1 == 'production' ]; then
 
-  POSTGRES_HOST=""
-  POSTGRES_PORT=""
-  POSTGRES_USER='honeypot_db'
-  POSTGRES_PASSWORD='password'
+  POSTGRES_HOST="honeypot-pg.o7.castle.fm"
+  POSTGRES_PORT="6432"
+  POSTGRES_USER='honeypot'
+  POSTGRES_PASSWORD=$2
   POSTGRES_DATABASE='honeypot_db'
 else
 
@@ -39,7 +39,7 @@ else
    printf "\n"
   echo "Running migration: "./$DIR/$filename
   PGPASSWORD=$POSTGRES_PASSWORD psql -U $POSTGRES_USER -h $POSTGRES_HOST  -p $POSTGRES_PORT $POSTGRES_DATABASE < ./$DIR/$filename 2> $errorlog
-  if  grep -q "ERROR" $errorlog  && [ "$2" != "skip" ];
+  if  grep -q "ERROR" $errorlog  && [ "$3" != "skip" ];
   then
   cat $errorlog
   else

@@ -2,7 +2,7 @@
 
 const _ = require('lodash');
 const ErrorOptions     = require('../../includes/error/errorOptions.js') ;
-const HiveError        = require('../../includes/error/customError.js') ;
+const CustomError        = require('../../includes/error/customError.js') ;
 
 async function error_catcher(ctx: any, next: any) {
   try {
@@ -10,10 +10,9 @@ async function error_catcher(ctx: any, next: any) {
     
   } catch (err) {
     console.error(err);
-    ctx.log(err);
     let err_to_use: any = err; // TODO figure out this type
-    if (!(err instanceof HiveError)) {
-      err_to_use = new HiveError(ErrorOptions.UNKNOWN);
+    if (!(err instanceof CustomError)) {
+      err_to_use = new CustomError(ErrorOptions.UNKNOWN);
     }
     ctx.original_error = err;
     ctx.status = err_to_use.code || 500;

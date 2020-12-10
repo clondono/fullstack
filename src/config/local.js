@@ -6,13 +6,14 @@ const ProdConfig = require('./prod.js');
 const config = { } ;
 
 config.PORT = Argv.port || 9085;
+config.CLIENT_HOST ='localhost:3000',
 
 //Postgres params
 config.POSTGRES = {};
-config.POSTGRES.USER = 'hitsquad';
+config.POSTGRES.USER = 'postgres';
 config.POSTGRES.HOST = 'localhost' ; //need to add
-config.POSTGRES.DATABASE = 'honeypot';
+config.POSTGRES.DATABASE = 'honeypot_db';
 config.POSTGRES.PORT = 5432;
-config.POSTGRES.PASSWORD ='2btamBnUgUB1';
+config.POSTGRES.PASSWORD ='';
 
 module.exports = _.merge({}, ProdConfig, config);

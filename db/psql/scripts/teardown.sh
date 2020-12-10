@@ -7,7 +7,7 @@ if [ $1 == 'localhost' ]; then
   POSTGRES_USER='postgres'
   POSTGRES_PASSWORD=''
   POSTGRES_DATABASE='postgres'
-
+else
   echo "$1 is not an allowed config -- please use localhost or staging or testing"
   exit 1
 
