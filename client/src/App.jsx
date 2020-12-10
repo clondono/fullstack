@@ -10,7 +10,6 @@ import { PrivateRoute,ConditionalRoute, HomePage, LoginPage } from './components
  
 function App() {
     const user = useSelector(store => store.auth.user);
-    const auth = useSelector(store => store.auth);
   
     const alert = useSelector(state => state.alert);
     const dispatch = useDispatch();

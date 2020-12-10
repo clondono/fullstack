@@ -12,7 +12,7 @@ config.CLIENT_HOST ='localhost:3000',
 config.POSTGRES = {};
 config.POSTGRES.USER = 'postgres';
 config.POSTGRES.HOST = 'localhost' ; //need to add
-config.POSTGRES.DATABASE = 'honeypot_db';
+config.POSTGRES.DATABASE = 'honeypot_db'; //TODO: fill in
 config.POSTGRES.PORT = 5432;
 config.POSTGRES.PASSWORD ='';
 

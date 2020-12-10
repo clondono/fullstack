@@ -6,12 +6,12 @@ const BaseConfig = require('./base.js');
 const config = { } ;
 
 
-config.CLIENT_HOST ='honeypot.thehive.ai',
+config.CLIENT_HOST ='',
 //Postgres params
 config.POSTGRES = {};
-config.POSTGRES.USER = 'honeypot';
-config.POSTGRES.HOST = 'honeypot-pg.o7.castle.fm' ; //need to add
-config.POSTGRES.DATABASE = 'honeypot_db';
+config.POSTGRES.USER = 'psotgres';
+config.POSTGRES.HOST = '' ; //need to add
+config.POSTGRES.DATABASE = '';
 config.POSTGRES.PORT = 6432;
 config.POSTGRES.PASSWORD ='' || Argv.pg_password;
 

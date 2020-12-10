@@ -1,7 +1,7 @@
 /* @flow */
 
 let config: any= {};
-const node_env = process.env.NODE_ENV;
+const node_env = process.env.NODE_ENV || 'development';
   console.info(`using env: ${node_env}`) ;
 if (['development', 'test'].includes(node_env)) {
   config = require('./local.js') ;

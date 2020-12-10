@@ -7,7 +7,6 @@ type SqlQueryParams = {
   is_error?: boolean,
 };
 
-
 const upload_enum = Object.freeze({
   IMAGE: "image",
   TEXT: "text",
