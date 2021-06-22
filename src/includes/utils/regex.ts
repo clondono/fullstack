@@ -5,8 +5,7 @@ const S3_URL_REGEX: RegExp = /^s3:\/\/(?<bucket>[\w\.-]+)\/(?<key>.*)$/;
 const COMMON_CRAWL_MEDIA_REGEX: string =
   '(http|https)://[-A-Za-z0-9+&@#/%?=~_|!:,.;]*[-A-Za-z0-9+&@#/%=~_|](.jpg|.jpeg|.png|.gif|.bmp|.webp|.mp4)';
 
-const COMMON_CRAWL_VIDEO_REGEX: RegExp =
-  /(http|https):\/\/[-A-Za-z0-9+&@#/%?=~_|!:,.;]*[-A-Za-z0-9+&@#/%=~_|]\.mp4/;
+const COMMON_CRAWL_VIDEO_REGEX: RegExp = /(http|https):\/\/[-A-Za-z0-9+&@#/%?=~_|!:,.;]*[-A-Za-z0-9+&@#/%=~_|]\.mp4/;
 
 const LUCENE_RANGE: RegExp =
   /(?<left> *[\[\{] *)(?<min>[+-]?\d*(\.\d+)?(E[-+]\d+)?)( *TO *)(?<max>[+-]?\d*(\.\d+)?(E[-+]\d+)?)(?<right> *[\]\}] *)/i;

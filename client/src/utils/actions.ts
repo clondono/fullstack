@@ -39,9 +39,7 @@ export const isHttp = (action: any) => !!_get(action, ['meta', 'isHttp']);
 
 export const requiresAuth = (action: any) => !!_get(action, ['meta', 'requireAuth']);
 
-export const getErrorCode = (action: any) =>
-  action.error ? _get(action, ['payload', 'error', 'status'], null) : null;
+export const getErrorCode = (action: any) => (action.error ? _get(action, ['payload', 'error', 'status'], null) : null);
 
 // returns true if action is settled and successful
-export const actionIsSuccessful = (action: any) =>
-  !!(!action.loading && !action.error && action.payload);
+export const actionIsSuccessful = (action: any) => !!(!action.loading && !action.error && action.payload);

@@ -33,14 +33,7 @@ async function send(opts: EmailMessage) {
   });
 }
 
-const sendTo = async ({
-  subject,
-  to = 'Config.CONTACT_US_ADDRESSES',
-  headers,
-  template,
-  data,
-  bcc,
-}: EmailSendObj) => {
+const sendTo = async ({ subject, to = 'Config.CONTACT_US_ADDRESSES', headers, template, data, bcc }: EmailSendObj) => {
   try {
     const html: any = await Templates.renderAsync(template, data);
     const message: EmailMessage = {

@@ -1,7 +1,6 @@
-import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-
-import Logo from '../../static/images/honey-pot.png';
+import { Link } from 'react-router-dom';
+import Logo from '../../static/images/logo.svg';
 import { LoggedInMenu } from './LoggedInMenu';
 import styles from './Navbar.module.scss';
 
@@ -24,7 +23,7 @@ function Navbar() {
     <div className={styles.navBarRoot}>
       <div className={styles.leftContainer}>
         <Link to='/' className={styles.logoLink}>
-          <img className={styles.logo} alt='Honeypot' src={Logo} />
+          <img className={styles.logo} alt='Fullstack' src={Logo} />
         </Link>
       </div>
       {!!user ? <LoggedInMenu /> : loggedOut()}

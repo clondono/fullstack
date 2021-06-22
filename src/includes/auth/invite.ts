@@ -41,22 +41,11 @@ const isValidEmailForInvite = async ({ email }: { email: string }) => {
   return true;
 };
 
-const sendInviteEmail = async ({
-  email,
-  token,
-  endpoint,
-}: {
-  email: string;
-  token: string;
-  endpoint: string;
-}) => {
-  const prepend =
-    endpoint.indexOf('https://') == -1 && !endpoint.includes('localhost') ? 'https://' : '';
+const sendInviteEmail = async ({ email, token, endpoint }: { email: string; token: string; endpoint: string }) => {
+  const prepend = endpoint.indexOf('https://') == -1 && !endpoint.includes('localhost') ? 'https://' : '';
   const template = 'get_started.html';
   const base_url = `${prepend}${endpoint}`;
-  const signup_url = `${base_url}/signup?token=${encodeURIComponent(
-    token
-  )}&email=${encodeURIComponent(email)}`;
+  const signup_url = `${base_url}/signup?token=${encodeURIComponent(token)}&email=${encodeURIComponent(email)}`;
   const data = {
     signup_url,
     email,

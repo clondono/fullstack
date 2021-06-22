@@ -11,9 +11,7 @@ const _capitalize = (word?: string) => {
 };
 
 const formatUser = (row: any) => {
-  let display_name = row.first_name
-    ? `${_capitalize(row.first_name)} ${_capitalize(row.last_name)}`
-    : row.email;
+  let display_name = row.first_name ? `${_capitalize(row.first_name)} ${_capitalize(row.last_name)}` : row.email;
   return {
     ...row,
     display_name,

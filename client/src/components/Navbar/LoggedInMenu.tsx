@@ -48,9 +48,7 @@ function LoggedInMenu() {
       <InviteModal isVisible={showInviteModal} setIsVisible={setShowInviteModal} />
       <Dropdown className={styles.rightContainer} overlay={menu} trigger={['click']}>
         <div>
-          <span className={[styles.userName, styles.whiteText].join(' ')}>
-            {getUserDisplayName(user)}
-          </span>
+          <span className={[styles.userName, styles.whiteText].join(' ')}>{getUserDisplayName(user)}</span>
           <CaretDownOutlined />
         </div>
       </Dropdown>

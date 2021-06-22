@@ -37,12 +37,7 @@ function PersonalDetailsSection() {
   return (
     <div>
       <h2>Update Personal Details</h2>
-      <Form
-        name='updatePersonalDetails'
-        onFinish={onFinish}
-        initialValues={{ ...user }}
-        size='large'
-      >
+      <Form name='updatePersonalDetails' onFinish={onFinish} initialValues={{ ...user }} size='large'>
         <Form.Item style={{ display: 'none' }} label='User Id' name='user_id' />
         <Form.Item label='First Name' name='first_name'>
           <Input />

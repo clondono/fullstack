@@ -18,12 +18,7 @@ router.delete('/logout', RequestSetter, Logout.route);
 
 router.post('/invite', RequestSetter, Invite.validateParams, Invite.route);
 router.post('/signup', RequestSetter, Signup.validateParams, Signup.route);
-router.post(
-  '/requestPasswordReset',
-  RequestSetter,
-  RequestPasswordReset.validateParams,
-  RequestPasswordReset.route
-);
+router.post('/requestPasswordReset', RequestSetter, RequestPasswordReset.validateParams, RequestPasswordReset.route);
 router.post('/passwordReset', RequestSetter, PasswordReset.validateParams, PasswordReset.route);
 
 export default router;

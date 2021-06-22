@@ -45,19 +45,11 @@ const hash_file = function ({
  * @param  algorithm hashing algorithm
  * @return {string} hash of text
  */
-const hash_text = function ({
-  text,
-  algorithm = 'md5',
-}: {
-  text: string;
-  algorithm?: string;
-}): string {
+const hash_text = function ({ text, algorithm = 'md5' }: { text: string; algorithm?: string }): string {
   return Crypto.createHash(algorithm).update(text).digest('hex');
 };
 
-const ALL_3_BYTE_HASHES = Array.from(new Array(4096).keys()).map((x) =>
-  x.toString(16).padStart(3, '0')
-);
+const ALL_3_BYTE_HASHES = Array.from(new Array(4096).keys()).map((x) => x.toString(16).padStart(3, '0'));
 
 export default {
   hash_url,

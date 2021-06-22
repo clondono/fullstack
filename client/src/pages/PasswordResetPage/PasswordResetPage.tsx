@@ -41,12 +41,7 @@ function PasswordResetPage() {
   return (
     <div>
       <h2>Password Reset</h2>
-      <Form
-        name='passwordReset'
-        onFinish={onFinish}
-        initialValues={{ user_id, token, email }}
-        size='large'
-      >
+      <Form name='passwordReset' onFinish={onFinish} initialValues={{ user_id, token, email }} size='large'>
         <Form.Item style={{ display: 'none' }} label='Token' name='token' />
         <Form.Item style={{ display: 'none' }} label='user Id' name='user_id' />
         <Form.Item

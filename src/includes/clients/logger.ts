@@ -63,9 +63,9 @@ function _format_staging_log(level: string, message: string, args: { [x: string]
   const _date = new Date();
   const iso_string = _date.toISOString();
   const level_string = level.toUpperCase();
-  return `[${level_string} ${iso_string}] ${
-    _.isPlainObject(message) ? JSON.stringify(message) : message
-  } \n ${!_.isEmpty(args) ? JSON.stringify(args) : ''}`;
+  return `[${level_string} ${iso_string}] ${_.isPlainObject(message) ? JSON.stringify(message) : message} \n ${
+    !_.isEmpty(args) ? JSON.stringify(args) : ''
+  }`;
 }
 
 function _format_log(log_level_label: string, message: string, args: { [x: string]: string }) {
@@ -85,9 +85,7 @@ function _format_log(log_level_label: string, message: string, args: { [x: strin
 function _should_log(level: number, limit: number) {
   return (
     limit === LogLevel.ALL ||
-    (Object.values(LogLevel).includes(level) &&
-      Object.values(LogLevel).includes(limit) &&
-      level >= limit)
+    (Object.values(LogLevel).includes(level) && Object.values(LogLevel).includes(limit) && level >= limit)
   );
 }
 

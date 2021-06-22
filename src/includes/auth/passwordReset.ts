@@ -15,13 +15,7 @@ const logger = new Logger();
 const PASSWORD_RESETS_TABLE = Config.POSTGRES.TABLES.USERS.PW_RESETS;
 const USERS_TABLE = Config.POSTGRES.TABLES.USERS.BASE;
 
-const forceResetFromEmail = async ({
-  email,
-  new_password,
-}: {
-  email: string;
-  new_password: string;
-}) => {
+const forceResetFromEmail = async ({ email, new_password }: { email: string; new_password: string }) => {
   const user_id = (await UsersGet.getByEmail({ email })).user_id;
   const password_hash: string = await Bcrypt.hash(new_password, Config.PASSWORD_SALT_ROUNDS);
   const queries: SqlQueryParams[] = [];
@@ -130,8 +124,7 @@ const request = async ({
     logger.error(e);
   }
   return {
-    display_message:
-      'Password reset link has been sent to the email, if the user email matches our record.',
+    display_message: 'Password reset link has been sent to the email, if the user email matches our record.',
   };
 };
 
@@ -143,12 +136,11 @@ type UserDetails = {
 };
 
 const sendPasswordResetEmail = async ({ user_id, email, token, endpoint }: UserDetails) => {
-  const prepend =
-    endpoint.indexOf('https://') == -1 && !endpoint.includes('localhost') ? 'https://' : ''; //workaround to ensure the link is constructed correctly (even in localhost)
+  const prepend = endpoint.indexOf('https://') == -1 && !endpoint.includes('localhost') ? 'https://' : ''; //workaround to ensure the link is constructed correctly (even in localhost)
   const base_url = `${prepend}${endpoint}`;
-  const reset_url = `${base_url}/passwordReset?user_id=${encodeURIComponent(
-    user_id
-  )}&email=${encodeURIComponent(email)}&token=${encodeURIComponent(token)}`;
+  const reset_url = `${base_url}/passwordReset?user_id=${encodeURIComponent(user_id)}&email=${encodeURIComponent(
+    email
+  )}&token=${encodeURIComponent(token)}`;
   const data = {
     reset_url,
     email: email,

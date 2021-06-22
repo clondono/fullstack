@@ -56,13 +56,7 @@ ErrorOptions.generator.paramRequired = ({ param_name }: { param_name: string }) 
   code: 400,
 });
 
-ErrorOptions.generator.wrongType = ({
-  param_name,
-  expected_type,
-}: {
-  param_name: string;
-  expected_type: string;
-}) => {
+ErrorOptions.generator.wrongType = ({ param_name, expected_type }: { param_name: string; expected_type: string }) => {
   return {
     error_code: 'WRONG_TYPE',
     message: `Validation failed for field: ${param_name}. Expected type: ${expected_type}`,
@@ -85,13 +79,7 @@ ErrorOptions.generator.badlyFormattedEmail = ({ param_name }: { param_name: stri
   };
 };
 
-ErrorOptions.generator.unallowedValue = ({
-  param_name,
-  white_list,
-}: {
-  param_name: string;
-  white_list: any[];
-}) => {
+ErrorOptions.generator.unallowedValue = ({ param_name, white_list }: { param_name: string; white_list: any[] }) => {
   return {
     error_code: 'UNALLOWED_VALUE',
     message: `Validation failed for field: ${param_name}. Value is not elligible for this field.`,

@@ -40,12 +40,7 @@ function InviteModal(Props: InviteModalProps) {
         // initialValues={{}}
         size='large'
       >
-        <Form.Item
-          label='email'
-          name='email'
-          key='0'
-          rules={[{ required: true, message: 'Please input an email.' }]}
-        >
+        <Form.Item label='email' name='email' key='0' rules={[{ required: true, message: 'Please input an email.' }]}>
           <Input />
         </Form.Item>
         <div>

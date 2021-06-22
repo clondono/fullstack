@@ -43,11 +43,7 @@ function SignupPage() {
       <h2>Signup</h2>
       <Form name='signup' onFinish={onFinish} initialValues={{ token, email }} size='large'>
         <Form.Item style={{ display: 'none' }} label='Token' name='token' />
-        <Form.Item
-          label='Email'
-          name='email'
-          rules={[{ required: true, message: 'Please input a password!' }]}
-        >
+        <Form.Item label='Email' name='email' rules={[{ required: true, message: 'Please input a password!' }]}>
           <Input prefix={<MailOutlined className='site-form-item-icon' />} disabled />
         </Form.Item>
         <Form.Item label='First Name' name='first_name'>
@@ -56,11 +52,7 @@ function SignupPage() {
         <Form.Item label='Last Name' name='last_name'>
           <Input />
         </Form.Item>
-        <Form.Item
-          label='Password'
-          name='password'
-          rules={[{ required: true, message: 'Please input a password!' }]}
-        >
+        <Form.Item label='Password' name='password' rules={[{ required: true, message: 'Please input a password!' }]}>
           <Input.Password prefix={<LockOutlined className='site-form-item-icon' />} />
         </Form.Item>
         <Form.Item

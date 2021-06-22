@@ -23,18 +23,10 @@ function LoginPage() {
       <RequestPasswordResetModal isVisible={showInviteModal} setIsVisible={setShowInviteModal} />
       <h2>Login</h2>
       <Form name='login' onFinish={onFinish} size='large'>
-        <Form.Item
-          label='Email'
-          name='email'
-          rules={[{ required: true, message: 'Please input an email.' }]}
-        >
+        <Form.Item label='Email' name='email' rules={[{ required: true, message: 'Please input an email.' }]}>
           <Input />
         </Form.Item>
-        <Form.Item
-          label='Password'
-          name='password'
-          rules={[{ required: true, message: 'Please input a password.' }]}
-        >
+        <Form.Item label='Password' name='password' rules={[{ required: true, message: 'Please input a password.' }]}>
           <Input.Password prefix={<LockOutlined className='site-form-item-icon' />} />
         </Form.Item>
         <div className='textAlignRightContainer'>

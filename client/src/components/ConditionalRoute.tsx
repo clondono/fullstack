@@ -7,12 +7,7 @@ interface ConditionalRouteProps extends RouteProps {
   redirectPath: string;
 }
 
-function ConditionalRoute({
-  component: Component,
-  conditionMet,
-  redirectPath,
-  ...rest
-}: ConditionalRouteProps) {
+function ConditionalRoute({ component: Component, conditionMet, redirectPath, ...rest }: ConditionalRouteProps) {
   return (
     <Route
       {...rest}

@@ -42,20 +42,14 @@ function App() {
             <Content>
               {alert.message && (
                 <>
-                  <Alert
-                    className={'alert'}
-                    banner
-                    closable
-                    type={alert.type}
-                    message={alert.message}
-                  />
+                  <Alert className={'alert'} banner closable type={alert.type} message={alert.message} />
                 </>
               )}
               <Row className='pageWidth mainContainer'>
                 <Col span={22} offset={1}>
                   <Switch>
-                    //TODO: add component for default page
                     {/* <ConditionalRoute
+                    //TODO: add component for default page
                       exact
                       path='/'
                       conditionMet={!!user}
@@ -69,12 +63,7 @@ function App() {
                       redirectPath='/login'
                       component={HomePage}
                     />
-                    <ConditionalRoute
-                      path='/login'
-                      conditionMet={!user}
-                      redirectPath='/'
-                      component={LoginPage}
-                    />
+                    <ConditionalRoute path='/login' conditionMet={!user} redirectPath='/' component={LoginPage} />
                     <ConditionalRoute
                       path='/signup'
                       conditionMet={!user && !!token && !!email}

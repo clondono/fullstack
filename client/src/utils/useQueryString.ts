@@ -25,8 +25,7 @@ const getQueryStringValue = (key: string, queryString: string = window.location.
 };
 
 const setQueryStringWithoutPageReload = (qsValue: string) => {
-  const newurl =
-    window.location.protocol + '//' + window.location.host + window.location.pathname + qsValue;
+  const newurl = window.location.protocol + '//' + window.location.host + window.location.pathname + qsValue;
 
   window.history.pushState({ path: newurl }, '', newurl);
 };

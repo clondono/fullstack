@@ -22,9 +22,7 @@ const updateGridSettings = async ({ user_id }: UpdateGridSettingsParams) => {
 
   if (!_.isEmpty(update_parts)) {
     update_parts.push(`updated_at=NOW()`);
-    const query: string = `UPDATE ${USERS_TABLE} SET ${update_parts.join(
-      ', '
-    )} WHERE user_id=$/user_id/ `;
+    const query: string = `UPDATE ${USERS_TABLE} SET ${update_parts.join(', ')} WHERE user_id=$/user_id/ `;
     await PgQuery.query({ query, bindings });
     return UsersGet.getByUserId({ user_id });
   }
@@ -38,12 +36,7 @@ interface UpdatePersonaalDetailsParams {
   last_name?: string;
   company?: string;
 }
-const updatePersonalDetails = async ({
-  user_id,
-  first_name,
-  last_name,
-  company,
-}: UpdatePersonaalDetailsParams) => {
+const updatePersonalDetails = async ({ user_id, first_name, last_name, company }: UpdatePersonaalDetailsParams) => {
   const old_user = await UsersGet.getByUserId({ user_id });
 
   const bindings: UpdatePersonaalDetailsParams = { user_id };
@@ -62,9 +55,7 @@ const updatePersonalDetails = async ({
     bindings.company = company;
   }
   if (!_.isEmpty(update_parts)) {
-    const query: string = `UPDATE ${USERS_TABLE} SET ${update_parts.join(
-      ', '
-    )} WHERE user_id=$/user_id/ `;
+    const query: string = `UPDATE ${USERS_TABLE} SET ${update_parts.join(', ')} WHERE user_id=$/user_id/ `;
     await PgQuery.query({ query, bindings });
     return UsersGet.getByUserId({ user_id });
   }
@@ -79,12 +70,7 @@ interface UpdatePaswordParams {
   new_password_confirm: string;
 }
 
-const updatePassword = async ({
-  user_id,
-  password,
-  new_password,
-  new_password_confirm,
-}: UpdatePaswordParams) => {
+const updatePassword = async ({ user_id, password, new_password, new_password_confirm }: UpdatePaswordParams) => {
   if (new_password != new_password_confirm) {
     throw new CustomError(ErrorOptions.PASSWORDS_MISMATCH);
   }

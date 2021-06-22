@@ -42,12 +42,9 @@ class Postgres {
   multipleQuery = async (queries: SqlQueryParams[]) => {
     return this.pg.tx(async (t) => {
       try {
-        const transformed_queries: any = await Bluebird.mapSeries(
-          queries,
-          async ({ query, bindings }) => {
-            return t.any(query, bindings);
-          }
-        );
+        const transformed_queries: any = await Bluebird.mapSeries(queries, async ({ query, bindings }) => {
+          return t.any(query, bindings);
+        });
         return transformed_queries.pop();
       } catch (e) {
         logger.error('rolling back transaction');

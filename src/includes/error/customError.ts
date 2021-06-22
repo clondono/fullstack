@@ -4,15 +4,7 @@ class CustomError extends Error {
   error_code: string;
   code: number;
 
-  constructor({
-    message,
-    code,
-    error_code,
-  }: {
-    message: string;
-    code: number;
-    error_code?: string;
-  }) {
+  constructor({ message, code, error_code }: { message: string; code: number; error_code?: string }) {
     super(message);
     this.name = this.constructor.name;
     this.error_string = message;

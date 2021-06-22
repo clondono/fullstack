@@ -64,9 +64,7 @@ const whiteListChecker = ({
   const values = _.map(white_list, (item: Option) => item.id);
   const display_names = _.map(white_list, (item: Option) => item.display_name);
   if (!values.includes(value)) {
-    throw new CustomError(
-      ErrorOptions.generator.unallowedValue({ param_name, white_list: display_names })
-    );
+    throw new CustomError(ErrorOptions.generator.unallowedValue({ param_name, white_list: display_names }));
   }
   return false;
 };
@@ -129,17 +127,13 @@ typeCheckers.email = ({
 }): boolean => {
   if (typeof value !== 'string') {
     if (!suppress_error) {
-      throw new CustomError(
-        ErrorOptions.generator.wrongType({ param_name, expected_type: 'string' })
-      );
+      throw new CustomError(ErrorOptions.generator.wrongType({ param_name, expected_type: 'string' }));
     }
     return false;
   }
   if (!validateEmail(value)) {
     if (!suppress_error) {
-      throw new CustomError(
-        ErrorOptions.generator.badlyFormattedEmail({ param_name, expected_type: type })
-      );
+      throw new CustomError(ErrorOptions.generator.badlyFormattedEmail({ param_name, expected_type: type }));
     }
     return false;
   }
