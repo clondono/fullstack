@@ -1,0 +1,59 @@
+
+.navBarRoot {
+  align-items      : center;
+  background-color : black;
+  color: white;
+  display          : flex;
+  position         : fixed;
+  top              : 0;
+  right            : 0;
+  left             : 0;
+  z-index          : 100; 
+}
+
+/* .navBarRoot  > .ant-typography {
+  color: white;
+} */
+
+ .whiteText {
+  color: white;
+  font-weight: bold;
+}
+.leftContainer {
+  display     : flex;
+  align-items : center;
+  padding     : 1em 2em;
+}
+
+.userName {
+  font-size    : 14px;
+  margin-left  : 12px;
+  margin-right : 16px;
+  font-weight: bold;
+}
+
+
+.logoLink {
+  display : flex;
+  height  : 36px;
+  width   : 36px;
+}
+.logo {
+  height : 36px;
+  width  : 36px;
+}
+
+.rightContainer {
+
+  height          : 100%;
+  display         : flex;
+  justify-content : space-between;
+  align-items     : center;
+  margin-left     : auto;
+  position        : relative;
+  margin-right    : 2em;
+}
+
+.floatRightContainer {
+  text-align: right
+}

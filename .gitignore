@@ -1,0 +1,9 @@
+.git-commit
+.idea/
+.vscode
+*.DS_store
+*.heapsnapshot
+*.swp 
+dist/*
+node_modules/*
+.tmp/

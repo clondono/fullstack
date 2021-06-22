@@ -1,0 +1,20 @@
+if you recieve an error about the server not running locally run: 
+$ pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start
+
+REQUIREMENTS TO CREATING YOUR LOCALHOST VERSION:
+
+must have a user or role 'postgres' with createrole Createdb and login attributes ( superuser is fine) and no password
+must have a databse called 'postgres'
+
+TO INITIATE_DB 
+  $ cd sql/postgres/scripts 
+  $ bash init_dh.sh {environment ( locally -> localhost, staging -> staging)}
+
+TO TEAR DOWN DB 
+  $ cd sql/postgres/scripts 
+  $ bash teardown.sh {environment ( locally -> localhost, staging -> staging)}
+
+TO RUN MIGRATIONS
+
+  $ cd sql/postgres/scripts 
+  $ bash teardown.sh {environment ( locally -> localhost, staging -> staging)}
