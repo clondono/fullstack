@@ -1,7 +1,7 @@
 {
   "name": "fullstack",
   "version": "1.0.0",
-  "description": "A custom dashboard for viewing/labeling content.",
+  "description": "A Template project with joint frontend and backend.",
   "main": "dist/app.js",
   "scripts": {
     "test": "mocha",
@@ -17,15 +17,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/clondono/template-repo.git"
+    "url": "git+https://github.com/clondono/fullstack.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/clondono/template-repo/issues"
+    "url": "https://github.com/clondono/fullstack/issues"
   },
-  "homepage": "https://github.com/clondono/template-repo#readme",
+  "homepage": "https://github.com/clondono/fullstack#readme",
   "dependencies": {
     "@koa/cors": "^3.1.0",
     "@types/node": "^14.14.19",
