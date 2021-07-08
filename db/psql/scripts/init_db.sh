@@ -8,13 +8,13 @@ if [ $1 == 'localhost' ]; then
   POSTGRES_PASSWORD=''
   POSTGRES_DATABASE='main_db'
 elif [ $1 == 'staging' ]; then
-  POSTGRES_HOST="honeypot-qa-pg.o7.castle.fm"
+  POSTGRES_HOST=""
   POSTGRES_PORT="6432"
   POSTGRES_USER='clondono'
   POSTGRES_PASSWORD=$2
   POSTGRES_DATABASE='main_db'
 elif [ $1 == 'production' ]; then
-  POSTGRES_HOST="honeypot-pg.o7.castle.fm"
+  POSTGRES_HOST=""
   POSTGRES_PORT="6432"
   POSTGRES_USER='clondono'
   POSTGRES_PASSWORD=$2

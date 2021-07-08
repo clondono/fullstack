@@ -19,7 +19,7 @@ const forceResetFromEmail = async ({ email, new_password }: { email: string; new
   const user_id = (await UsersGet.getByEmail({ email })).user_id;
   const password_hash: string = await Bcrypt.hash(new_password, Config.PASSWORD_SALT_ROUNDS);
   const queries: SqlQueryParams[] = [];
-  //update password
+  // update password
   await PgQuery.query([
     {
       query: `UPDATE ${USERS_TABLE} SET password_hash=$/password_hash/ WHERE user_id=$/user_id/`,
@@ -60,7 +60,7 @@ const reset = async ({
   try {
     const password_hash: string = await Bcrypt.hash(new_password, Config.PASSWORD_SALT_ROUNDS);
     const queries: SqlQueryParams[] = [];
-    //update password
+    // update password
     queries.push({
       query: `UPDATE ${USERS_TABLE} SET password_hash=$/password_hash/ WHERE user_id=$/user_id/`,
       bindings: {
@@ -68,14 +68,14 @@ const reset = async ({
         password_hash,
       },
     });
-    //delete old tokens
+    // delete old tokens
     queries.push({
       query: `DELETE FROM ${PASSWORD_RESETS_TABLE} WHERE used=TRUE AND user_id=$/user_id/`,
       bindings: {
         user_id,
       },
     });
-    //delete old tokens
+    // delete old tokens
     queries.push({
       query: `UPDATE ${PASSWORD_RESETS_TABLE} SET used=TRUE WHERE user_id=$/user_id/ AND token=$/token/`,
       bindings: {
@@ -103,7 +103,7 @@ const request = async ({
     const user_id: string = user.user_id;
     let token: string = UuidBase62.v4();
 
-    const query: string = `INSERT INTO ${PASSWORD_RESETS_TABLE} ("user_id", "email", "token") VALUES ($/user_id/, $/email/, $/token/)`;
+    const query = `INSERT INTO ${PASSWORD_RESETS_TABLE} ("user_id", "email", "token") VALUES ($/user_id/, $/email/, $/token/)`;
     const bindings = { user_id, email, token };
     try {
       await PgQuery.query([{ query, bindings }]);
@@ -136,7 +136,7 @@ type UserDetails = {
 };
 
 const sendPasswordResetEmail = async ({ user_id, email, token, endpoint }: UserDetails) => {
-  const prepend = endpoint.indexOf('https://') == -1 && !endpoint.includes('localhost') ? 'https://' : ''; //workaround to ensure the link is constructed correctly (even in localhost)
+  const prepend = endpoint.indexOf('https://') == -1 && !endpoint.includes('localhost') ? 'https://' : ''; // workaround to ensure the link is constructed correctly (even in localhost)
   const base_url = `${prepend}${endpoint}`;
   const reset_url = `${base_url}/passwordReset?user_id=${encodeURIComponent(user_id)}&email=${encodeURIComponent(
     email

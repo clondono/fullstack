@@ -1,4 +1,4 @@
-let ErrorOptions: {
+const ErrorOptions: {
   generator: any;
   [x: string]: { message: string; error_code?: string; code: number } | any;
 } = { generator: {} };

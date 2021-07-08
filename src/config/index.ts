@@ -20,7 +20,7 @@ if (Argv.use_local) {
 Object.freeze(config);
 export default config;
 
-//Affixes a suffix to all queues so that none of them chain to a production version that could cause problems when testing locally.
+// Affixes a suffix to all queues so that none of them chain to a production version that could cause problems when testing locally.
 // if (Argv.post_affix) {
 //   const QUEUES = _.reduce(
 //     Object.keys(config.QUEUES),

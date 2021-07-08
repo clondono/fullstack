@@ -7,7 +7,7 @@ const main = async () => {
       first_name: 'test',
       last_name: '',
       email: 'test_login@thehive.ai',
-      password: 'Honey3pot8',
+      password: 'tempPass',
       company: 'thehive.ai',
     },
   ];

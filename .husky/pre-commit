@@ -1,5 +1,6 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 npx eslint --fix
+echo 'running'
 npx prettier --write --loglevel warn "**/*.{js,ts,tsx,css,html,md}"
 git add -u .

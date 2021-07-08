@@ -28,7 +28,7 @@ async function requestSetter(ctx: Context, next: Function) {
   _request_params.files = ctx.request && ctx.request.files;
   _request_params.app_domain = ctx.request && ctx.request.header && ctx.request.header['xhr-domain'];
   _request_params.request_origin = ctx.request.header.origin;
-  //$FlowFixMe
+  // $FlowFixMe
   const _request: Request = _request_params;
   ctx._request = _request;
   ctx.type = 'application/json';

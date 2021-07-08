@@ -4,7 +4,7 @@ import Bluebird from 'bluebird';
 import Bs58 from 'bs58';
 import Crypto from 'crypto';
 import Config from '../../config/index';
-//TODO better promisify definitions
+// TODO better promisify definitions
 const { randomBytesAsync, createCipheriv, createHmac }: any = Bluebird.promisifyAll(Crypto);
 
 const ALGORITHM = Config.LOGIN_ALGORITHM;

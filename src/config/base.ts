@@ -39,7 +39,7 @@ const config = {
     DEFAULT_TIMEOUT: 60 * 60 * 24 * 365 * 10,
     DEFAULT_DL_DIRECTORY: DOWNLOAD_DIRECTORY,
     CLIENTS: {
-      ['client_name']: {
+      client_name: {
         accessKeyId: Argv.s3_client_name_access_key || 'AKIAX5AGQFDTQ7M2QV56',
         BUCKETS_FOR_MATCHING: ['bucket'],
         DOWNLOAD_DIRECTORY: Argv.s3_client_name_download_directory || __dirname + '/tmp',

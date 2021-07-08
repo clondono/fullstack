@@ -66,7 +66,7 @@ const create = async ({ email, password, first_name, last_name, company }: creat
 
   columns.push('created_at');
   columns.push('updated_at');
-  const query: string = `insert into ${Config.POSTGRES.TABLES.USERS.BASE}(${columns.join(
+  const query = `insert into ${Config.POSTGRES.TABLES.USERS.BASE}(${columns.join(
     ', '
   )}) VALUES(${binding_variables.join(', ')}, NOW(), NOW()) `;
   await PgQuery.query({ query, bindings });
@@ -89,7 +89,7 @@ const createInvited = async ({
   // });
   const password = Config.DEFAULT_PASSWORD;
   const created_user = await create({ email, password, first_name, last_name });
-  //TODO email for invites
+  // TODO email for invites
   return created_user;
 };
 

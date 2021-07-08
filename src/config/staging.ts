@@ -7,14 +7,14 @@ const config = {
   /* General HTTP */
   ENV: 'staging',
   DEFAULT_LOG_LEVEL: Argv.DEFAULT_LOG_LEVEL || 1,
-  //TODO: client host url
+  // TODO: client host url
   CLIENT_HOST: '',
-  //TODO: callback_url
+  // TODO: callback_url
   CALLBACK_URL: Argv.callback_url || '',
-  //Postgres params
+  // Postgres params
   POSTGRES: {
     USER: 'clondono',
-    //TODO: host
+    // TODO: host
     HOST: '',
     DATABASE: 'main_db',
     PORT: 6432,

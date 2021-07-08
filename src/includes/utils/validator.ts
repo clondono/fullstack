@@ -9,7 +9,7 @@ type ValidateParamsObj = {
   value: any;
   white_list?: { id: any; display_name: string }[];
   black_list?: any[];
-  //TODO: allow custom validation functions and error codes to be passed in.
+  // TODO: allow custom validation functions and error codes to be passed in.
 };
 
 const validateParams = function ({
@@ -70,7 +70,7 @@ const whiteListChecker = ({
 };
 
 const validateEmail = (email: string): boolean => {
-  const re: RegExp =
+  const re =
     /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(email);
 };
@@ -104,8 +104,8 @@ typeCheckers.date_string = ({
   param_name: string;
   suppress_error?: boolean;
 }): boolean => {
-  let isType: boolean = false;
-  if (typeof value === 'string' && value.match(/^[\d]{4}-[\d]{2}-[\d]{2}$/)) {
+  const isType = false;
+  if (typeof value === 'string' && /^[\d]{4}-[\d]{2}-[\d]{2}$/.exec(value)) {
     return true;
   }
   if (!suppress_error) {

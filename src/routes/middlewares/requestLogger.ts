@@ -8,7 +8,7 @@ export default async function (ctx: Context, next: Function) {
 
   await next();
 
-  logger.info(`Request completed.`, {
+  logger.info('Request completed.', {
     uri: ctx.path,
     route: ctx._matchedRoute,
     status: ctx.status,

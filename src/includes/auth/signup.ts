@@ -11,7 +11,7 @@ const validateInvite = async ({ email, token }: { email: string; token: string }
   const bindings_match = { email, token };
   const match = await PgQuery.query([{ query: query_match, bindings: bindings_match }]);
   if (_.isEmpty(match)) {
-    //this token either doesn't exist, is already used, or this email token pairing isn't valid
+    // this token either doesn't exist, is already used, or this email token pairing isn't valid
     throw new CustomError(ErrorOptions.POSTGRES);
   }
   return true;

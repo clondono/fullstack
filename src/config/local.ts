@@ -10,10 +10,10 @@ const _local_config = {
   DEFAULT_LOG_LEVEL: Argv.DEFAULT_LOG_LEVEL || 1,
   CLIENT_HOST: 'localhost:3000',
   CALLBACK_URL: Argv.callback_url || '',
-  //Postgres params
+  // Postgres params
   POSTGRES: {
     USER: 'postgres',
-    HOST: 'localhost', //need to add
+    HOST: 'localhost', // need to add
     DATABASE: 'main_db',
     PORT: 5432,
     PASSWORD: '' || Argv.pg_password,

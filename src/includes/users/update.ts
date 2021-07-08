@@ -21,8 +21,8 @@ const updateGridSettings = async ({ user_id }: UpdateGridSettingsParams) => {
   const update_parts: string[] = [];
 
   if (!_.isEmpty(update_parts)) {
-    update_parts.push(`updated_at=NOW()`);
-    const query: string = `UPDATE ${USERS_TABLE} SET ${update_parts.join(', ')} WHERE user_id=$/user_id/ `;
+    update_parts.push('updated_at=NOW()');
+    const query = `UPDATE ${USERS_TABLE} SET ${update_parts.join(', ')} WHERE user_id=$/user_id/ `;
     await PgQuery.query({ query, bindings });
     return UsersGet.getByUserId({ user_id });
   }
@@ -55,7 +55,7 @@ const updatePersonalDetails = async ({ user_id, first_name, last_name, company }
     bindings.company = company;
   }
   if (!_.isEmpty(update_parts)) {
-    const query: string = `UPDATE ${USERS_TABLE} SET ${update_parts.join(', ')} WHERE user_id=$/user_id/ `;
+    const query = `UPDATE ${USERS_TABLE} SET ${update_parts.join(', ')} WHERE user_id=$/user_id/ `;
     await PgQuery.query({ query, bindings });
     return UsersGet.getByUserId({ user_id });
   }
@@ -81,7 +81,7 @@ const updatePassword = async ({ user_id, password, new_password, new_password_co
   }
   const password_hash: string = await Bcrypt.hash(password, Config.PASSWORD_SALT_ROUNDS);
 
-  const query: string = `update ${USERS_TABLE} set password_hash=$/password_hash/ WHERE user_id=$/user_id/`;
+  const query = `update ${USERS_TABLE} set password_hash=$/password_hash/ WHERE user_id=$/user_id/`;
   await PgQuery.query({ query, bindings: { user_id: user_id, password_hash } });
   return UsersGet.getByUserId({ user_id });
 };

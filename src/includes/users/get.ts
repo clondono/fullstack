@@ -11,7 +11,7 @@ const _capitalize = (word?: string) => {
 };
 
 const formatUser = (row: any) => {
-  let display_name = row.first_name ? `${_capitalize(row.first_name)} ${_capitalize(row.last_name)}` : row.email;
+  const display_name = row.first_name ? `${_capitalize(row.first_name)} ${_capitalize(row.last_name)}` : row.email;
   return {
     ...row,
     display_name,
@@ -19,7 +19,7 @@ const formatUser = (row: any) => {
 };
 
 const getByEmail = async ({ email }: { email: string }) => {
-  const query: string = `SELECT 
+  const query = `SELECT 
       email,
       password_hash,
       user_id,
@@ -36,7 +36,7 @@ const getByEmail = async ({ email }: { email: string }) => {
 };
 
 const getByUserId = async ({ user_id }: { user_id: string }) => {
-  const query: string = `
+  const query = `
     SELECT 
       email,
       password_hash,

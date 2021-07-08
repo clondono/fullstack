@@ -61,7 +61,7 @@ class Postgres {
 
   printQuery = async (_queries: SqlQueryParams | SqlQueryParams[]) => {
     const queries: SqlQueryParams[] = Array.isArray(_queries) ? _queries : [_queries];
-    for (let query of queries) {
+    for (const query of queries) {
       logger.log(Pgp.as.format(query.query, query.bindings));
     }
   };

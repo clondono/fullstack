@@ -5,42 +5,40 @@ module.exports = {
     mocha: true,
     node: true,
   },
-  extends: ['eslint:recommended', 'plugin:react/recommended', 'react-app'],
-  parser: 'babel-eslint',
+  extends: [
+    'eslint:recommended',
+    'standard',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:@typescript-eslint/recommended-requiring-type-checking',
+    'plugin:react/recommended',
+  ],
+  parser: '@typescript-eslint/parser',
   parserOptions: {
+    project: `./tsconfig.json`,
+    ecmaVersion: 2021,
     ecmaFeatures: {
       jsx: true,
     },
-    env: {
-      es6: true,
-    },
-    sourceType: 'module',
   },
-  plugins: ['react'],
+  plugins: ['prettier', '@typescript-eslint', 'react'],
   rules: {
-    camelcase: 0,
+    'prettier/prettier': 'error',
+    camelcase: 'off',
     'comma-dangle': ['error', 'always-multiline'],
-    eqeqeq: ['error', 'smart'],
+    eqeqeq: ['error', 'always'],
     'import/no-extraneous-dependencies': 0,
-    indent: [
-      'error',
-      2,
-      {
-        SwitchCase: 1,
-        VariableDeclarator: {
-          const: 2,
-          let: 2,
-          var: 2,
-        },
-      },
-    ],
+    indent: ['error', 2],
     'key-spacing': [
       'error',
       {
-        align: {
+        singleLine: {
+          beforeColon: false,
           afterColon: true,
+        },
+        multiLine: {
           beforeColon: true,
-          on: 'colon',
+          afterColon: true,
+          align: 'colon',
         },
       },
     ],
@@ -52,8 +50,7 @@ module.exports = {
       },
     ],
     'linebreak-style': ['error', 'unix'],
-    'no-alert': 2,
-    'no-console': 0,
+    'no-console': 'error', //todo: not sure
     'no-constant-condition': [
       'error',
       {
@@ -70,20 +67,22 @@ module.exports = {
       },
     ],
     'no-trailing-spaces': ['error'],
-    'no-underscore-dangle': 0,
-    'no-unused-vars': [
-      'error',
-      {
-        args: 'none',
-      },
-    ],
+    'no-underscore-dangle': 'error',
     'no-use-before-define': 0,
     'object-curly-spacing': ['error', 'always'],
     'prefer-destructuring': 0,
     quotes: ['error', 'single'],
     'react/jsx-fragments': ['error'],
     'react/prop-types': ['error'],
+    'react/jsx-uses-react': 'error',
+    'react/jsx-uses-vars': 'error',
+    '@typescript-eslint/no-explicit-any': 0,
+    '@typescript-eslint/no-unsafe-assignment': 0,
     semi: ['error'],
   },
-  settings: {},
+  settings: {
+    react: {
+      version: 'detect',
+    },
+  },
 };
