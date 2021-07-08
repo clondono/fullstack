@@ -3,7 +3,7 @@ function HomePage() {
     <>
       <h2> WELCOME!</h2>
     </>
-  );
+  )
 }
 
-export { HomePage };
+export { HomePage }

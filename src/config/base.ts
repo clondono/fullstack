@@ -1,8 +1,8 @@
-import Minimist from 'minimist';
-import Path from 'path';
-const Argv = Minimist(process.argv.slice(2));
+import Minimist from 'minimist'
+import Path from 'path'
+const Argv = Minimist(process.argv.slice(2))
 
-const DOWNLOAD_DIRECTORY = Argv.download_dir || Path.join(__dirname, './tmp');
+const DOWNLOAD_DIRECTORY = Argv.download_dir || Path.join(__dirname, './tmp')
 
 const config = {
   PORT: Argv.port || 8080,
@@ -55,6 +55,6 @@ const config = {
       },
     },
   },
-};
+}
 
-export default config;
+export default config

@@ -1,11 +1,11 @@
-import { executeRequest } from '../../utils';
+import { executeRequest } from '../../utils'
 
 function requestPasswordReset({ email }: { email: string }) {
-  const body = { email };
+  const body = { email }
   return executeRequest.POST({
     url: 'auth/requestPasswordReset',
     body,
-  });
+  })
 }
 
-export { requestPasswordReset };
+export { requestPasswordReset }

@@ -1,21 +1,21 @@
-import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { Button, Form, Input } from 'antd';
-import { useState } from 'react';
-import { LockOutlined } from '@ant-design/icons';
+import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { Button, Form, Input } from 'antd'
+import { useState } from 'react'
+import { LockOutlined } from '@ant-design/icons'
 
-import { authActions } from '../../actions';
-import { RequestPasswordResetModal } from './RequestPasswordResetModal';
-import styles from './LoginPage.module.scss';
+import { authActions } from '../../actions'
+import { RequestPasswordResetModal } from './RequestPasswordResetModal'
+import styles from './LoginPage.module.scss'
 
 function LoginPage() {
-  type TODOReduxState = any;
-  const dispatch = useDispatch();
-  const auth = useSelector((state: TODOReduxState) => state.auth);
-  const [showInviteModal, setShowInviteModal] = useState(false);
+  type TODOReduxState = any
+  const dispatch = useDispatch()
+  const auth = useSelector((state: TODOReduxState) => state.auth)
+  const [showInviteModal, setShowInviteModal] = useState(false)
 
   function onFinish({ email, password }: { email: string; password: string }) {
-    dispatch(authActions.login({ email, password }));
+    dispatch(authActions.login({ email, password }))
   }
 
   return (
@@ -34,7 +34,7 @@ function LoginPage() {
             to='#'
             className={styles.requestPasswordReset}
             onClick={() => {
-              setShowInviteModal(true);
+              setShowInviteModal(true)
             }}
           >
             Request Reset Password?
@@ -45,7 +45,7 @@ function LoginPage() {
         </div>
       </Form>
     </div>
-  );
+  )
 }
 
-export { LoginPage };
+export { LoginPage }

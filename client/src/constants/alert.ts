@@ -4,4 +4,4 @@ export const ALERT_CONSTANTS = {
   WARNING: 'ALERT_WARNING',
   ERROR: 'ALERT_ERROR',
   CLEAR: 'ALERT_CLEAR',
-};
+}

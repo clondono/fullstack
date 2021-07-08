@@ -1,7 +1,7 @@
-import _ from 'lodash';
-import Minimist from 'minimist';
-import BaseConfig from './base';
-const Argv = Minimist(process.argv.slice(2));
+import _ from 'lodash'
+import Minimist from 'minimist'
+import BaseConfig from './base'
+const Argv = Minimist(process.argv.slice(2))
 
 const config = {
   /* General HTTP */
@@ -20,5 +20,5 @@ const config = {
     PORT: 6432,
     PASSWORD: '' || Argv.pg_password,
   },
-};
-export default _.merge({}, BaseConfig, config);
+}
+export default _.merge({}, BaseConfig, config)

@@ -1,8 +1,8 @@
-import Bluebird from 'bluebird';
-import Fs from 'fs';
-const { unlinkAsync, statAsync, rmdirAsync }: any = Bluebird.promisifyAll(Fs);
+import Bluebird from 'bluebird'
+import Fs from 'fs'
+const { unlinkAsync, statAsync, rmdirAsync }: any = Bluebird.promisifyAll(Fs)
 
-const no_op = () => {};
+const no_op = () => {}
 
 /**
  * Wrapper of Bluebird.disposer().
@@ -13,39 +13,39 @@ const no_op = () => {};
  * @param  {...any} args
  */
 async function usingResource(disposer_function: any, ...args: any[]) {
-  let resource_handler = args.pop();
+  let resource_handler = args.pop()
 
   if (typeof resource_handler !== 'function') {
-    resource_handler = no_op;
+    resource_handler = no_op
   }
 
   const resource_list = args.map((arg) => {
-    let promise;
+    let promise
     // Convert each argument to a Bluebird Promise
     if (typeof arg === 'function') {
-      promise = Bluebird.resolve(arg());
+      promise = Bluebird.resolve(arg())
     } else {
-      promise = Bluebird.resolve(arg);
+      promise = Bluebird.resolve(arg)
     }
-    return promise.disposer(disposer_function);
-  });
+    return promise.disposer(disposer_function)
+  })
   // @ts-ignore: NO IDEA BLUEBIRD MESS
-  return Bluebird.using(...resource_list, resource_handler);
+  return Bluebird.using(...resource_list, resource_handler)
 }
 
 async function usingFile(...args: any[]) {
   return usingResource((file_path: string) => {
-    return unlinkAsync(file_path).catch(no_op);
-  }, ...args);
+    return unlinkAsync(file_path).catch(no_op)
+  }, ...args)
 }
 
 async function usingDirectory(...args: any[]) {
   return usingResource((directory_path: string) => {
-    return rmdirAsync(directory_path, { recursive: true }).catch(no_op);
-  }, ...args);
+    return rmdirAsync(directory_path, { recursive: true }).catch(no_op)
+  }, ...args)
 }
 
 export default {
   usingFile,
   usingDirectory,
-};
+}

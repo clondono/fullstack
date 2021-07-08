@@ -1,12 +1,12 @@
-import { Context } from 'koa';
-import Logger from '../../includes/clients/logger';
+import { Context } from 'koa'
+import Logger from '../../includes/clients/logger'
 
-const logger = new Logger();
+const logger = new Logger()
 
 export default async function (ctx: Context, next: Function) {
-  const start_time = Date.now();
+  const start_time = Date.now()
 
-  await next();
+  await next()
 
   logger.info('Request completed.', {
     uri: ctx.path,
@@ -16,5 +16,5 @@ export default async function (ctx: Context, next: Function) {
     body_message: ctx?.body?.message || '',
     // headers: JSON.stringify(ctx.request.headers),
     response_time: Date.now() - start_time,
-  });
+  })
 }

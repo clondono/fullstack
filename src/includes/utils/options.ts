@@ -1,17 +1,17 @@
-import _ from 'lodash';
-import { Option } from '../../ts/interfaces/moderation';
+import _ from 'lodash'
+import { Option } from '../../ts/interfaces/moderation'
 
 const getOptionsDict = (options: Option[]) => {
-  const option_dict: { [key: string]: string } = {};
+  const option_dict: { [key: string]: string } = {}
   _.reduce(
     options,
     (acc, { id, display_name }) => {
-      acc[id] = display_name;
-      return acc;
+      acc[id] = display_name
+      return acc
     },
     option_dict
-  );
-  return option_dict;
-};
+  )
+  return option_dict
+}
 
-export { getOptionsDict };
+export { getOptionsDict }

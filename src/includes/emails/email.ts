@@ -1,17 +1,17 @@
-import Bluebird from 'bluebird';
-import Nodemailer from 'nodemailer';
-import MandrillTransport from 'nodemailer-mandrill-transport';
-import Path from 'path';
-import SwigEmailTemplates from 'swig-email-templates';
-import Config from '../../config';
-import { EmailMessage, EmailSendObj } from '../../ts/interfaces/email';
-import Logger from '../clients/logger';
-const EmailTemplates: any = Bluebird.promisifyAll(SwigEmailTemplates);
-const logger = new Logger();
+import Bluebird from 'bluebird'
+import Nodemailer from 'nodemailer'
+import MandrillTransport from 'nodemailer-mandrill-transport'
+import Path from 'path'
+import SwigEmailTemplates from 'swig-email-templates'
+import Config from '../../config'
+import { EmailMessage, EmailSendObj } from '../../ts/interfaces/email'
+import Logger from '../clients/logger'
+const EmailTemplates: any = Bluebird.promisifyAll(SwigEmailTemplates)
+const logger = new Logger()
 
 const Templates: { renderAsync: Function } = new EmailTemplates({
   root: Path.join(`${__dirname}/../templates`) || '/',
-});
+})
 
 const transport = Nodemailer.createTransport(
   MandrillTransport({
@@ -19,31 +19,31 @@ const transport = Nodemailer.createTransport(
       apiKey: Config.MANDRILL_API_KEY,
     },
   })
-);
+)
 
 async function send(opts: EmailMessage) {
   return new Bluebird((resolve, reject) => {
     transport.sendMail(opts, function (err: Error | null, info: any) {
       if (err) {
-        reject();
+        reject()
       } else {
-        resolve(info);
+        resolve(info)
       }
-    });
-  });
+    })
+  })
 }
 
 const sendTo = async ({ subject, to = 'Config.CONTACT_US_ADDRESSES', headers, template, data, bcc }: EmailSendObj) => {
   try {
-    const html: any = await Templates.renderAsync(template, data);
+    const html: any = await Templates.renderAsync(template, data)
     const message: EmailMessage = {
       bcc,
       from: Config.EMAILS.DO_NOT_REPLY,
       to: to || Config.EMAILS.CONTACT_US,
       subject,
       html,
-    };
-    await send(message);
+    }
+    await send(message)
   } catch (e) {
     logger.error(
       'Mandrill error sending mail',
@@ -53,7 +53,7 @@ const sendTo = async ({ subject, to = 'Config.CONTACT_US_ADDRESSES', headers, te
         to: Config.CONTACT_US_ADDRESSES,
         data,
       })
-    );
+    )
     logger.log(
       JSON.stringify(
         {
@@ -67,10 +67,10 @@ const sendTo = async ({ subject, to = 'Config.CONTACT_US_ADDRESSES', headers, te
         null,
         2
       )
-    );
+    )
   }
-};
+}
 
 export default {
   sendTo,
-};
+}

@@ -1,10 +1,10 @@
-import { Route, RouteProps, Redirect } from 'react-router-dom';
+import { Route, RouteProps, Redirect } from 'react-router-dom'
 
 interface ConditionalRouteProps extends RouteProps {
-  component: any;
-  conditionMet: boolean;
-  exact?: boolean;
-  redirectPath: string;
+  component: any
+  conditionMet: boolean
+  exact?: boolean
+  redirectPath: string
 }
 
 function ConditionalRoute({ component: Component, conditionMet, redirectPath, ...rest }: ConditionalRouteProps) {
@@ -14,13 +14,13 @@ function ConditionalRoute({ component: Component, conditionMet, redirectPath, ..
       render={(props) => {
         if (!conditionMet) {
           // not logged in so redirect to login page with the return url
-          return <Redirect to={{ pathname: redirectPath, state: { from: props.location } }} />;
+          return <Redirect to={{ pathname: redirectPath, state: { from: props.location } }} />
         }
         // logged in so return component
-        return <Component {...props} />;
+        return <Component {...props} />
       }}
     />
-  );
+  )
 }
 
-export { ConditionalRoute };
+export { ConditionalRoute }

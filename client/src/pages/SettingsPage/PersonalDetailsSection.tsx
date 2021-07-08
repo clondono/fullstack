@@ -1,37 +1,37 @@
-import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Button, Typography, Form, Input } from 'antd';
+import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { Button, Typography, Form, Input } from 'antd'
 
-import { authActions, alertActions } from '../../actions';
-import { usersApis } from '../../apis';
+import { authActions, alertActions } from '../../actions'
+import { usersApis } from '../../apis'
 
 function PersonalDetailsSection() {
-  const dispatch = useDispatch();
-  type TODOReduxState = any;
+  const dispatch = useDispatch()
+  type TODOReduxState = any
   type UpdateUserApiParams = {
-    user_id: string;
-    first_name?: string;
-    last_name?: string;
-    company?: string;
-  };
+    user_id: string
+    first_name?: string
+    last_name?: string
+    company?: string
+  }
 
-  const { user } = useSelector((state: TODOReduxState) => state.auth);
+  const { user } = useSelector((state: TODOReduxState) => state.auth)
 
-  const [formErrorMsg, setFormErrorMsg] = useState('');
-  const [confirmLoading, setConfirmLoading] = useState(false);
+  const [formErrorMsg, setFormErrorMsg] = useState('')
+  const [confirmLoading, setConfirmLoading] = useState(false)
 
   function onFinish(values: UpdateUserApiParams) {
-    setFormErrorMsg('');
-    setConfirmLoading(true);
+    setFormErrorMsg('')
+    setConfirmLoading(true)
     usersApis.updatePersonalDetails(values).then(({ error }) => {
-      setConfirmLoading(false);
+      setConfirmLoading(false)
       if (error) {
-        setFormErrorMsg(error.message);
+        setFormErrorMsg(error.message)
       } else {
-        dispatch(authActions.fetchProfile());
-        dispatch(alertActions.success('Personal Settings updated.'));
+        dispatch(authActions.fetchProfile())
+        dispatch(alertActions.success('Personal Settings updated.'))
       }
-    });
+    })
   }
 
   return (
@@ -58,7 +58,7 @@ function PersonalDetailsSection() {
         </div>
       </Form>
     </div>
-  );
+  )
 }
 
-export { PersonalDetailsSection };
+export { PersonalDetailsSection }

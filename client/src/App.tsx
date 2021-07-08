@@ -1,35 +1,35 @@
-import { Alert, Col, Layout, Row } from 'antd';
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { BrowserRouter, Redirect, Switch } from 'react-router-dom';
-import { alertActions, authActions } from './actions';
-import { ConditionalRoute, Navbar } from './components';
-import { HomePage, LoginPage, PasswordResetPage, SettingsPage, SignupPage } from './pages';
-import './static/css/App.scss';
-import { history } from './utils';
-import useQueryString from './utils/useQueryString';
+import { Alert, Col, Layout, Row } from 'antd'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { BrowserRouter, Redirect, Switch } from 'react-router-dom'
+import { alertActions, authActions } from './actions'
+import { ConditionalRoute, Navbar } from './components'
+import { HomePage, LoginPage, PasswordResetPage, SettingsPage, SignupPage } from './pages'
+import './static/css/App.scss'
+import { history } from './utils'
+import useQueryString from './utils/useQueryString'
 
-const { Header, Content, Footer } = Layout;
-type TODOReduxState = any;
+const { Header, Content, Footer } = Layout
+type TODOReduxState = any
 
 function App() {
-  const dispatch = useDispatch();
-  const [token] = useQueryString('token');
-  const [email] = useQueryString('email');
+  const dispatch = useDispatch()
+  const [token] = useQueryString('token')
+  const [email] = useQueryString('email')
 
-  const { user, profile_loading } = useSelector((state: TODOReduxState) => state.auth);
-  const alert = useSelector((state: TODOReduxState) => state.alert);
+  const { user, profile_loading } = useSelector((state: TODOReduxState) => state.auth)
+  const alert = useSelector((state: TODOReduxState) => state.alert)
 
   useEffect(() => {
-    dispatch(authActions.fetchProfile());
-  }, [dispatch]);
+    dispatch(authActions.fetchProfile())
+  }, [dispatch])
 
   useEffect(() => {
     history.listen((_: any) => {
       // clear alert on location change
-      dispatch(alertActions.clear());
-    });
-  }, [dispatch]);
+      dispatch(alertActions.clear())
+    })
+  }, [dispatch])
 
   return (
     <>
@@ -93,7 +93,7 @@ function App() {
         )}
       </BrowserRouter>
     </>
-  );
+  )
 }
 
-export { App };
+export { App }

@@ -1,10 +1,10 @@
-import { Context } from 'koa';
-import AuthLogin from '../../includes/auth/login';
-import Validator from '../../includes/utils/validator';
+import { Context } from 'koa'
+import AuthLogin from '../../includes/auth/login'
+import Validator from '../../includes/utils/validator'
 
 const validateParams = async function (ctx: Context, next: Function) {
-  const email: string = ctx._request.variables.email;
-  const password: string = ctx._request.variables.password;
+  const email: string = ctx._request.variables.email
+  const password: string = ctx._request.variables.password
 
   Validator.validateParams({
     params: {
@@ -19,27 +19,27 @@ const validateParams = async function (ctx: Context, next: Function) {
         type: 'string',
       },
     },
-  });
-  return next();
-};
+  })
+  return next()
+}
 const route = async function (ctx: Context, next: Function) {
-  const email: string = ctx._request.variables.email;
-  const password: string = ctx._request.variables.password;
+  const email: string = ctx._request.variables.email
+  const password: string = ctx._request.variables.password
 
   const user: any = await AuthLogin.login({
     email,
     password,
-  });
+  })
 
-  ctx.status = 202;
-  ctx.session = { user };
+  ctx.status = 202
+  ctx.session = { user }
   ctx.body = {
     user: user,
-  };
-  return next();
-};
+  }
+  return next()
+}
 
 export default {
   route,
   validateParams,
-};
+}

@@ -1,6 +1,6 @@
-import { Context } from 'koa';
-import UsersUpdate from '../../includes/users/update';
-import Validator from '../../includes/utils/validator';
+import { Context } from 'koa'
+import UsersUpdate from '../../includes/users/update'
+import Validator from '../../includes/utils/validator'
 
 const validateParams = async function (ctx: Context, next: Function) {
   const {
@@ -9,11 +9,11 @@ const validateParams = async function (ctx: Context, next: Function) {
     new_password,
     new_password_confirm,
   }: {
-    user_id: string;
-    password: string;
-    new_password: string;
-    new_password_confirm: string;
-  } = ctx._request.variables;
+    user_id: string
+    password: string
+    new_password: string
+    new_password_confirm: string
+  } = ctx._request.variables
 
   Validator.validateParams({
     params: {
@@ -38,9 +38,9 @@ const validateParams = async function (ctx: Context, next: Function) {
         type: 'string',
       },
     },
-  });
-  return next();
-};
+  })
+  return next()
+}
 const route = async function (ctx: Context, next: Function) {
   const {
     user_id,
@@ -48,29 +48,29 @@ const route = async function (ctx: Context, next: Function) {
     new_password,
     new_password_confirm,
   }: {
-    user_id: string;
-    password: string;
-    new_password: string;
-    new_password_confirm: string;
-  } = ctx._request.variables;
+    user_id: string
+    password: string
+    new_password: string
+    new_password_confirm: string
+  } = ctx._request.variables
 
   const user: any = await UsersUpdate.updatePassword({
     user_id,
     password,
     new_password,
     new_password_confirm,
-  });
+  })
 
-  ctx.status = 200;
-  ctx.session = { user };
+  ctx.status = 200
+  ctx.session = { user }
   ctx.body = {
     user: user,
-  };
+  }
 
-  return next();
-};
+  return next()
+}
 
 export default {
   route,
   validateParams,
-};
+}

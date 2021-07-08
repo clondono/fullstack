@@ -1,6 +1,6 @@
-import { Divider } from 'antd';
-import { PasswordSection } from './PasswordSection';
-import { PersonalDetailsSection } from './PersonalDetailsSection';
+import { Divider } from 'antd'
+import { PasswordSection } from './PasswordSection'
+import { PersonalDetailsSection } from './PersonalDetailsSection'
 
 function SettingsPage() {
   return (
@@ -11,7 +11,7 @@ function SettingsPage() {
       <Divider orientation='left'></Divider>
       <PersonalDetailsSection />
     </div>
-  );
+  )
 }
 
-export { SettingsPage };
+export { SettingsPage }

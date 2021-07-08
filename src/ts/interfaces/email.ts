@@ -1,16 +1,16 @@
 export interface EmailMessage {
-  bcc: string[];
-  from: string;
-  to: string;
-  subject: string;
-  html: any;
+  bcc: string[]
+  from: string
+  to: string
+  subject: string
+  html: any
 }
 
 export interface EmailSendObj {
-  bcc: string[];
-  to?: string;
-  subject: string;
-  headers?: {};
-  template: any;
-  data: { [key: string]: any };
+  bcc: string[]
+  to?: string
+  subject: string
+  headers?: {}
+  template: any
+  data: { [key: string]: any }
 }

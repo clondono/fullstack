@@ -1,41 +1,41 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { Button, Typography, Form, Input } from 'antd';
-import { MailOutlined, LockOutlined } from '@ant-design/icons';
-import useQueryString from '../../utils/useQueryString';
-import { authActions } from '../../actions';
-import { authApis } from '../../apis';
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { Button, Typography, Form, Input } from 'antd'
+import { MailOutlined, LockOutlined } from '@ant-design/icons'
+import useQueryString from '../../utils/useQueryString'
+import { authActions } from '../../actions'
+import { authApis } from '../../apis'
 
 function PasswordResetPage() {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
-  const [formErrorMsg, setFormErrorMsg] = useState('');
-  const [confirmLoading, setConfirmLoading] = useState(false);
+  const [formErrorMsg, setFormErrorMsg] = useState('')
+  const [confirmLoading, setConfirmLoading] = useState(false)
 
-  const [token] = useQueryString('token');
-  const [email] = useQueryString('email');
-  const [user_id] = useQueryString('user_id');
+  const [token] = useQueryString('token')
+  const [email] = useQueryString('email')
+  const [user_id] = useQueryString('user_id')
 
   type ResetPasswordParams = {
-    user_id: string;
-    email: string;
-    token: string;
-    new_password: string;
-    new_password_confirm: string;
-  };
+    user_id: string
+    email: string
+    token: string
+    new_password: string
+    new_password_confirm: string
+  }
 
   function onFinish(values: ResetPasswordParams) {
-    setFormErrorMsg('');
-    setConfirmLoading(true);
-    setFormErrorMsg('');
+    setFormErrorMsg('')
+    setConfirmLoading(true)
+    setFormErrorMsg('')
     authApis.passwordReset(values).then(({ error }: { error: { message: string } }) => {
-      setConfirmLoading(false);
+      setConfirmLoading(false)
       if (error) {
-        setFormErrorMsg(error.message);
+        setFormErrorMsg(error.message)
       } else {
-        dispatch(authActions.fetchProfile());
+        dispatch(authActions.fetchProfile())
       }
-    });
+    })
   }
 
   return (
@@ -77,7 +77,7 @@ function PasswordResetPage() {
         </div>
       </Form>
     </div>
-  );
+  )
 }
 
-export { PasswordResetPage };
+export { PasswordResetPage }

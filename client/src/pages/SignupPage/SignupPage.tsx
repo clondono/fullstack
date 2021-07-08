@@ -1,41 +1,41 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { Button, Typography, Form, Input } from 'antd';
-import { MailOutlined, LockOutlined } from '@ant-design/icons';
-import useQueryString from '../../utils/useQueryString';
-import { authActions } from '../../actions';
-import { authApis } from '../../apis';
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { Button, Typography, Form, Input } from 'antd'
+import { MailOutlined, LockOutlined } from '@ant-design/icons'
+import useQueryString from '../../utils/useQueryString'
+import { authActions } from '../../actions'
+import { authApis } from '../../apis'
 function SignupPage() {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
-  const [formErrorMsg, setFormErrorMsg] = useState('');
-  const [confirmLoading, setConfirmLoading] = useState(false);
+  const [formErrorMsg, setFormErrorMsg] = useState('')
+  const [confirmLoading, setConfirmLoading] = useState(false)
 
-  const [token] = useQueryString('token');
-  const [email] = useQueryString('email');
+  const [token] = useQueryString('token')
+  const [email] = useQueryString('email')
 
   interface SignupParams {
-    user_id: string;
-    email: string;
-    token: string;
-    first_name: string;
-    last_name: string;
-    password: string;
-    password_confirm: string;
+    user_id: string
+    email: string
+    token: string
+    first_name: string
+    last_name: string
+    password: string
+    password_confirm: string
   }
 
   function onFinish(values: SignupParams) {
-    setFormErrorMsg('');
-    setConfirmLoading(true);
-    setFormErrorMsg('');
+    setFormErrorMsg('')
+    setConfirmLoading(true)
+    setFormErrorMsg('')
     authApis.signup(values).then(({ error }: { error: { message: string } }) => {
-      setConfirmLoading(false);
+      setConfirmLoading(false)
       if (error) {
-        setFormErrorMsg(error.message);
+        setFormErrorMsg(error.message)
       } else {
-        dispatch(authActions.fetchProfile());
+        dispatch(authActions.fetchProfile())
       }
-    });
+    })
   }
 
   return (
@@ -73,7 +73,7 @@ function SignupPage() {
         </div>
       </Form>
     </div>
-  );
+  )
 }
 
-export { SignupPage };
+export { SignupPage }

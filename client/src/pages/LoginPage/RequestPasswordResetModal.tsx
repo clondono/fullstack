@@ -1,34 +1,34 @@
-import { useState } from 'react';
-import { Typography, Button, Modal, Form, Input } from 'antd';
-import { alertActions } from '../../actions';
-import { useDispatch } from 'react-redux';
+import { useState } from 'react'
+import { Typography, Button, Modal, Form, Input } from 'antd'
+import { alertActions } from '../../actions'
+import { useDispatch } from 'react-redux'
 
-import { authApis } from '../../apis';
+import { authApis } from '../../apis'
 
 interface RPRProps {
-  isVisible: boolean;
-  setIsVisible: any;
+  isVisible: boolean
+  setIsVisible: any
 }
 function RequestPasswordResetModal(Props: RPRProps) {
-  const dispatch = useDispatch();
-  const { isVisible, setIsVisible } = Props;
+  const dispatch = useDispatch()
+  const { isVisible, setIsVisible } = Props
 
-  const [confirmLoading, setConfirmLoading] = useState(false);
-  const [formErrorMsg, setFormErrorMsg] = useState<string | undefined>(undefined);
+  const [confirmLoading, setConfirmLoading] = useState(false)
+  const [formErrorMsg, setFormErrorMsg] = useState<string | undefined>(undefined)
 
   const submitResetPassword = ({ email }: { email: string }) => {
-    setFormErrorMsg(undefined);
-    setConfirmLoading(true);
+    setFormErrorMsg(undefined)
+    setConfirmLoading(true)
     authApis.requestPasswordReset({ email }).then(({ error }: { error: { message: string } }) => {
-      setConfirmLoading(false);
+      setConfirmLoading(false)
       if (error) {
-        setFormErrorMsg(error.message);
+        setFormErrorMsg(error.message)
       } else {
-        setIsVisible(false);
-        dispatch(alertActions.success('Reset Password Link has been sent to your email.'));
+        setIsVisible(false)
+        dispatch(alertActions.success('Reset Password Link has been sent to your email.'))
       }
-    });
-  };
+    })
+  }
 
   return (
     <Modal
@@ -52,6 +52,6 @@ function RequestPasswordResetModal(Props: RPRProps) {
         </div>
       </Form>
     </Modal>
-  );
+  )
 }
-export { RequestPasswordResetModal };
+export { RequestPasswordResetModal }

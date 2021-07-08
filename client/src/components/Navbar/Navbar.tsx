@@ -1,13 +1,13 @@
-import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import Logo from '../../static/images/logo.svg';
-import { LoggedInMenu } from './LoggedInMenu';
-import styles from './Navbar.module.scss';
+import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
+import Logo from '../../static/images/logo.svg'
+import { LoggedInMenu } from './LoggedInMenu'
+import styles from './Navbar.module.scss'
 
 function Navbar() {
-  type TODOReduxState = any;
+  type TODOReduxState = any
 
-  const { user } = useSelector((state: TODOReduxState) => state.auth);
+  const { user } = useSelector((state: TODOReduxState) => state.auth)
 
   const loggedOut = () => {
     return (
@@ -16,8 +16,8 @@ function Navbar() {
           Login
         </Link>
       </div>
-    );
-  };
+    )
+  }
 
   return (
     <div className={styles.navBarRoot}>
@@ -28,7 +28,7 @@ function Navbar() {
       </div>
       {!!user ? <LoggedInMenu /> : loggedOut()}
     </div>
-  );
+  )
 }
 
-export { Navbar };
+export { Navbar }

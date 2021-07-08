@@ -1,10 +1,10 @@
-import { Context } from 'koa';
-import AuthInvite from '../../includes/auth/invite';
-import RouteUtils from '../../includes/utils/routes';
-import Validator from '../../includes/utils/validator';
+import { Context } from 'koa'
+import AuthInvite from '../../includes/auth/invite'
+import RouteUtils from '../../includes/utils/routes'
+import Validator from '../../includes/utils/validator'
 
 const validateParams = async function (ctx: Context, next: Function) {
-  const email: string = ctx._request.variables.email;
+  const email: string = ctx._request.variables.email
   Validator.validateParams({
     params: {
       email: {
@@ -13,24 +13,24 @@ const validateParams = async function (ctx: Context, next: Function) {
         type: 'email',
       },
     },
-  });
-  return next();
-};
+  })
+  return next()
+}
 
 const route = async function (ctx: Context, next: Function) {
-  const email: string = ctx._request.variables.email;
-  const endpoint: string = RouteUtils.fetchRequestURL(ctx);
-  const invite_res: any = await AuthInvite.invite({ email, endpoint });
-  ctx.status = 200;
+  const email: string = ctx._request.variables.email
+  const endpoint: string = RouteUtils.fetchRequestURL(ctx)
+  const invite_res: any = await AuthInvite.invite({ email, endpoint })
+  ctx.status = 200
   ctx.body = {
     message: 'Success',
     invite_res,
-  };
+  }
 
-  return next();
-};
+  return next()
+}
 
 export default {
   route,
   validateParams,
-};
+}

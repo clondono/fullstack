@@ -1,4 +1,4 @@
-import { ALERT_CONSTANTS } from '../constants';
+import { ALERT_CONSTANTS } from '../constants'
 
 export function alert(state = {}, action: any) {
   switch (action.type) {
@@ -6,25 +6,25 @@ export function alert(state = {}, action: any) {
       return {
         type: 'success',
         message: action.message,
-      };
+      }
     case ALERT_CONSTANTS.INFO:
       return {
         type: 'info',
         message: action.message,
-      };
+      }
     case ALERT_CONSTANTS.WARNING:
       return {
         type: 'warning',
         message: action.message,
-      };
+      }
     case ALERT_CONSTANTS.ERROR:
       return {
         type: 'error',
         message: action.message,
-      };
+      }
     case ALERT_CONSTANTS.CLEAR:
-      return {};
+      return {}
     default:
-      return state;
+      return state
   }
 }

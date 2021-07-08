@@ -1,36 +1,36 @@
-import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Button, Typography, Form, Input } from 'antd';
-import { LockOutlined } from '@ant-design/icons';
+import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { Button, Typography, Form, Input } from 'antd'
+import { LockOutlined } from '@ant-design/icons'
 
-import { alertActions, authActions } from '../../actions';
-import { usersApis } from '../../apis';
+import { alertActions, authActions } from '../../actions'
+import { usersApis } from '../../apis'
 
 function PasswordSection() {
-  const dispatch = useDispatch();
-  type TODOReduxState = any;
+  const dispatch = useDispatch()
+  type TODOReduxState = any
   interface UpdateUserPasswordApiParams {
-    user_id: string;
-    old_password: string;
-    new_password: string;
-    new_password_confirm: string;
+    user_id: string
+    old_password: string
+    new_password: string
+    new_password_confirm: string
   }
-  const { user } = useSelector((state: TODOReduxState) => state.auth);
-  const [formErrorMsg, setFormErrorMsg] = useState('');
-  const [confirmLoading, setConfirmLoading] = useState(false);
+  const { user } = useSelector((state: TODOReduxState) => state.auth)
+  const [formErrorMsg, setFormErrorMsg] = useState('')
+  const [confirmLoading, setConfirmLoading] = useState(false)
 
   function onFinish(params: UpdateUserPasswordApiParams) {
-    setFormErrorMsg('');
-    setConfirmLoading(true);
+    setFormErrorMsg('')
+    setConfirmLoading(true)
     usersApis.updatePassword(params).then(({ error }: { error: { message: string } }) => {
-      setConfirmLoading(false);
+      setConfirmLoading(false)
       if (error) {
-        setFormErrorMsg(error.message);
+        setFormErrorMsg(error.message)
       } else {
-        dispatch(authActions.fetchProfile());
-        dispatch(alertActions.success('Password updated.'));
+        dispatch(authActions.fetchProfile())
+        dispatch(alertActions.success('Password updated.'))
       }
-    });
+    })
   }
 
   return (
@@ -70,7 +70,7 @@ function PasswordSection() {
         </div>
       </Form>
     </div>
-  );
+  )
 }
 
-export { PasswordSection };
+export { PasswordSection }

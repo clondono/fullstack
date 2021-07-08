@@ -22,7 +22,6 @@ module.exports = {
   },
   plugins: ['prettier', '@typescript-eslint', 'react'],
   rules: {
-    'prettier/prettier': 'error',
     camelcase: 'off',
     'comma-dangle': ['error', 'always-multiline'],
     eqeqeq: ['error', 'always'],
@@ -78,11 +77,11 @@ module.exports = {
     'react/jsx-uses-vars': 'error',
     '@typescript-eslint/no-explicit-any': 0,
     '@typescript-eslint/no-unsafe-assignment': 0,
-    semi: ['error'],
+    semi: 'never',
   },
   settings: {
     react: {
       version: 'detect',
     },
   },
-};
+}

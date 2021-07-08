@@ -1,30 +1,30 @@
-import { useState } from 'react';
-import { Typography, Button, Modal, Form, Input } from 'antd';
+import { useState } from 'react'
+import { Typography, Button, Modal, Form, Input } from 'antd'
 
-import { authApis } from '../../apis';
+import { authApis } from '../../apis'
 
 interface InviteModalProps {
-  isVisible: boolean;
-  setIsVisible: any;
+  isVisible: boolean
+  setIsVisible: any
 }
 
 function InviteModal(Props: InviteModalProps) {
-  const { isVisible, setIsVisible } = Props;
-  const [confirmLoading, setConfirmLoading] = useState(false);
-  const [formErrorMsg, setFormErrorMsg] = useState<string | undefined>(undefined);
+  const { isVisible, setIsVisible } = Props
+  const [confirmLoading, setConfirmLoading] = useState(false)
+  const [formErrorMsg, setFormErrorMsg] = useState<string | undefined>(undefined)
 
   const submitInvite = (params: { email: string }) => {
-    setFormErrorMsg(undefined);
-    setConfirmLoading(true);
+    setFormErrorMsg(undefined)
+    setConfirmLoading(true)
     authApis.invite(params).then(({ error }: { error: { message: string } }) => {
-      setConfirmLoading(false);
+      setConfirmLoading(false)
       if (error) {
-        setFormErrorMsg(error.message);
+        setFormErrorMsg(error.message)
       } else {
-        setIsVisible(false);
+        setIsVisible(false)
       }
-    });
-  };
+    })
+  }
 
   return (
     <Modal
@@ -53,6 +53,6 @@ function InviteModal(Props: InviteModalProps) {
         </div>
       </Form>
     </Modal>
-  );
+  )
 }
-export { InviteModal };
+export { InviteModal }
