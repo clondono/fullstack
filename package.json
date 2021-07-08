@@ -44,6 +44,7 @@
     "nodemailer": "^6.4.17",
     "nodemailer-mandrill-transport": "^1.2.0",
     "pg-promise": "^10.8.1",
+    "postinstall": "^0.7.0",
     "swig-email-templates": "^6.0.0",
     "ts-node": "^9.1.1",
     "uuid-base62": "^0.1.0"
