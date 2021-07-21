@@ -1,9 +1,9 @@
-import { executeRequest } from '../../utils'
+import { executeRequest } from "../../utils";
 function login({ email, password }: { email: string; password: string }) {
-  const body = { email, password }
+  const body = { email, password };
   return executeRequest.POST({
-    url: 'auth/login',
+    url: "auth/login",
     body,
-  })
+  });
 }
-export { login }
+export { login };

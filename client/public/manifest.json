@@ -18,8 +18,8 @@
       "type": "image/png"
     }
   ],
-  "name": "Hive Moderation Tool",
-  "short_name": "Hive Moderation",
+  "name": "fullstack",
+  "short_name": "FullStack",
   "start_url": ".",
   "theme_color": "#000000"
 }

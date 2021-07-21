@@ -1,7 +1,7 @@
 //Routes
-export * from './ConditionalRoute'
+export * from "./ConditionalRoute";
 
 //SharedComponenets
-export * from './Navbar'
+export * from "./Navbar";
 
 ///Other

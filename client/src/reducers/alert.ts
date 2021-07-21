@@ -1,30 +1,30 @@
-import { ALERT_CONSTANTS } from '../constants'
+import { ALERT_CONSTANTS } from "../constants";
 
 export function alert(state = {}, action: any) {
   switch (action.type) {
     case ALERT_CONSTANTS.SUCCESS:
       return {
-        type: 'success',
+        type: "success",
         message: action.message,
-      }
+      };
     case ALERT_CONSTANTS.INFO:
       return {
-        type: 'info',
+        type: "info",
         message: action.message,
-      }
+      };
     case ALERT_CONSTANTS.WARNING:
       return {
-        type: 'warning',
+        type: "warning",
         message: action.message,
-      }
+      };
     case ALERT_CONSTANTS.ERROR:
       return {
-        type: 'error',
+        type: "error",
         message: action.message,
-      }
+      };
     case ALERT_CONSTANTS.CLEAR:
-      return {}
+      return {};
     default:
-      return state
+      return state;
   }
 }

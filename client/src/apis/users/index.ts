@@ -1,4 +1,4 @@
-import { executeRequest } from '../../utils'
+import { executeRequest } from "../../utils";
 
 async function updatePassword(params: any) {
   return executeRequest.PUT({
@@ -6,7 +6,7 @@ async function updatePassword(params: any) {
     body: {
       ...params,
     },
-  })
+  });
 }
 
 async function updatePersonalDetails(params: any) {
@@ -15,10 +15,10 @@ async function updatePersonalDetails(params: any) {
     body: {
       ...params,
     },
-  })
+  });
 }
 
 export const usersApis = {
   updatePassword,
   updatePersonalDetails,
-}
+};

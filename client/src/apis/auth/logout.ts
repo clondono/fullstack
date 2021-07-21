@@ -1,7 +1,7 @@
-import { executeRequest } from '../../utils'
+import { executeRequest } from "../../utils";
 function logout() {
   return executeRequest.DELETE({
-    url: 'auth/logout',
-  })
+    url: "auth/logout",
+  });
 }
-export { logout }
+export { logout };

@@ -1,7 +1,7 @@
-import { executeRequest } from '../../utils'
+import { executeRequest } from "../../utils";
 function fetchProfile() {
   return executeRequest.GET({
-    url: 'auth/fetchProfile',
-  })
+    url: "auth/fetchProfile",
+  });
 }
-export { fetchProfile }
+export { fetchProfile };

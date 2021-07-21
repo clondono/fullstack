@@ -1,4 +1,4 @@
 export interface Option {
-  id: string
-  display_name: string
+  id: string;
+  display_name: string;
 }
